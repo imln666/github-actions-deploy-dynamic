@@ -38,13 +38,15 @@ jobs:
         with: 
           node-version: 18
           cache: 'npm'
+      - name: '执行安装'
         run: npm install
+      - name: '执行构建'
         run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: '.'
+          path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
